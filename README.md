@@ -1,1 +1,1 @@
-# tytyd.sh
+# tytyd

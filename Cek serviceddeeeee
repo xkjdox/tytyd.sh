@@ -1,0 +1,13 @@
+#!/bin/bash
+red="\e[1;31m"
+green="\e[0;32m"
+NC="\e[0m"
+
+status="$(systemctl show dropbear.service --no-page)"
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
+if [ "${status_text}" == "active" ]
+then
+echo -e "* DropBear        : DropBear Service is "$green"running"$NC""
+else
+echo -e "* DropBear        : DropBear Service is "$red"not running (Error)"$NC""
+fi
